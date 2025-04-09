@@ -1,4 +1,5 @@
 using curvela_backend.Data;
+using curvela_backend.src.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,8 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+builder.Services.AddScoped<IProductService, ProductService>();
 
 // 3. Configurar o Swagger
 builder.Services.AddEndpointsApiExplorer();

@@ -3,21 +3,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace curvela_backend.Data;
 
-    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
-    {
-        public DbSet<Product> Products { get; set; }
+public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+    : DbContext(options)
+{
+    public DbSet<Product> Products { get; set; }
 
-    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Product>(entity =>
         {
-            base.OnModelCreating(modelBuilder);
+            entity
+                .Property(e => e.Id)
+                .HasDefaultValueSql("public.uuid_generate_v4()")
+                .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<Product>(entity =>
-            {
-                entity.Property(e => e.Id)
-                    .HasDefaultValueSql("uuid_generate_v4()")
-                    .ValueGeneratedOnAdd();
-            });
-        }
+            entity.Property(e => e.Created_at).HasDefaultValueSql("now()");
+        });
     }
-
+}

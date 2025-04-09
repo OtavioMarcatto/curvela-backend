@@ -1,0 +1,30 @@
+## Ignore arquivos e pastas gerados pelo Visual Studio
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+
+## Pastas de saída de compilação
+bin/
+obj/
+
+## Arquivos de build e publicações
+*.dll
+*.exe
+*.pdb
+
+## Dependências do NuGet
+*.nupkg
+# A pasta globalPackages não precisa ser commitada se você estiver usando o NuGet 4.0 ou superior
+.nuget/
+
+## Node e outros pacotes front-end (se houver)
+node_modules/
+
+## Arquivos temporários do sistema
+Thumbs.db
+Desktop.ini
+
+## Configurações locais e arquivos de user secrets
+appsettings*.json

@@ -8,7 +8,7 @@ namespace curvela_backend.src.Controllers
     [Route("curvela/[controller]")]
     public class ProductsController(IProductService productService) : ControllerBase
     {
-        private const string TelefoneLoja = "5516992360521";
+        private const string TelefoneLoja = "5516993384169";
         private readonly IProductService _productService = productService;
 
         // GET: api/products

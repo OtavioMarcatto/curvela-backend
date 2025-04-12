@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using curvela_backend.Data;
 using curvela_backend.src.DTOs;
-using curvela_backend.src.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace curvela_backend.src.Services
@@ -32,6 +27,9 @@ namespace curvela_backend.src.Services
                     Price = p.Price,
                     PromotionalPrice = p.PromotionalPrice,
                     Description = p.Description,
+                    Colection = p.Colection,
+                    Size = p.Size,
+                    StockSize = p.StockSize,
                     Category = p.Category,
                     Brand = p.Brand,
                     ImageUrl = p.ImageUrl,
@@ -59,6 +57,9 @@ namespace curvela_backend.src.Services
                 Price = product.Price,
                 PromotionalPrice = product.PromotionalPrice,
                 Description = product.Description,
+                Colection = product.Colection,
+                Size = product.Size,
+                StockSize = product.StockSize,
                 Category = product.Category,
                 Brand = product.Brand,
                 ImageUrl = product.ImageUrl,

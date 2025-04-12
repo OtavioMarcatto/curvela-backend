@@ -22,6 +22,12 @@ namespace curvela_backend.src.Models
 
         public string? Description { get; set; }
 
+        public string? Colection { get; set; }
+
+        public string? Size { get; set; }
+
+        public int? StockSize { get; set; }
+
         public required string Category { get; set; }
 
         public string? Brand { get; set; }

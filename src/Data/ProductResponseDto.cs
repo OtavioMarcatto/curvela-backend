@@ -11,6 +11,9 @@ namespace curvela_backend.src.DTOs
         public decimal Price { get; set; }
         public decimal? PromotionalPrice { get; set; }
         public string? Description { get; set; }
+        public string? Colection { get; set; }
+        public string? Size { get; set; }
+        public int? StockSize { get; set; }
         public required string Category { get; set; }
         public string? Brand { get; set; }
         public string? ImageUrl { get; set; }

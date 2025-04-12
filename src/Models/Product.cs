@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,6 +32,8 @@ namespace curvela_backend.src.Models
         public string? Brand { get; set; }
 
         public string? ImageUrl { get; set; }
+
+        public bool? IsSelected { get; set; } = false;
 
         public DateTime Created_at { get; set; }
 

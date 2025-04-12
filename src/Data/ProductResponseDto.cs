@@ -1,5 +1,3 @@
-using System;
-
 namespace curvela_backend.src.DTOs
 {
     public class ProductResponseDto
@@ -17,6 +15,9 @@ namespace curvela_backend.src.DTOs
         public required string Category { get; set; }
         public string? Brand { get; set; }
         public string? ImageUrl { get; set; }
+        public bool? IsSelected { get; set; } = false;
         public DateTime Created_at { get; set; }
+        public DateTime? Updated_at { get; set; }
+        public DateTime? Deleted_at { get; set; }
     }
 }

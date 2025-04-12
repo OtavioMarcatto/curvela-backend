@@ -4,26 +4,28 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Configurar a string de conexão no appsettings.json
-// Exemplo de ConnectionString no appsettings.json:
-
+// Configurar a política de cookies (opcional: definir as regras de consentimento, SameSite, etc.)
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    // Se precisar de consentimento para cookies não essenciais, habilite aqui:
+    options.CheckConsentNeeded = context => false;
+    options.MinimumSameSitePolicy = SameSiteMode.Strict;
+});
 
 builder.Services.AddControllers();
 
-// 2. Configurar o Entity Framework Core com PostgreSQL
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
-
 builder.Services.AddScoped<IProductService, ProductService>();
 
-// 3. Configurar o Swagger
+// Configurar Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// 4. Configurar o pipeline HTTP
+// Se estiver em desenvolvimento, configurar Swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -31,6 +33,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Adiciona o middleware de política de cookies
+app.UseCookiePolicy();
 
 app.UseAuthorization();
 
